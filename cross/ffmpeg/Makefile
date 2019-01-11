@@ -8,7 +8,7 @@ PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 DEPENDS = cross/flac cross/freetype cross/fribidi cross/lame cross/libass
 DEPENDS += cross/libbluray cross/libtheora cross/libvorbis cross/libvpx
 DEPENDS += cross/opencore-amr cross/openjpeg cross/gnutls cross/opus cross/rtmpdump
-DEPENDS += cross/soxr cross/speex cross/vo-amrwbenc cross/x264
+DEPENDS += cross/soxr cross/speex cross/vo-amrwbenc cross/x264 cross/x265
 
 HOMEPAGE = http://www.ffmpeg.org/
 COMMENT  = FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video. It includes libavcodec - the leading audio/video codec library
@@ -59,10 +59,7 @@ CONFIGURE_ARGS += --arch=x86_64 --enable-thumb
 endif
 
 ifeq ($(findstring $(ARCH),$(PPC_ARCHES)),$(ARCH))
-DEPENDS += native/yasm cross/x265-2.1
+DEPENDS += native/yasm
 ENV += PATH=$(YASM_PATH):$$PATH
 CONFIGURE_ARGS += --arch=ppc
-else
-# Latest x265 version for non-pcc arch
-DEPENDS += cross/x265
 endif
