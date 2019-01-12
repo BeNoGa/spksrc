@@ -1,6 +1,6 @@
 bin:bin/fc-cache
 bin:bin/fc-cat
-bin:bin/conflist
+bin:bin/fc-conflist
 bin:bin/fc-list
 bin:bin/fc-match
 bin:bin/fc-pattern
