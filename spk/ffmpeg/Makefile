@@ -14,4 +14,11 @@ STARTABLE = no
 HOMEPAGE = http://www.ffmpeg.org/
 LICENSE  = GPLv3
 
+PRE_COPY_TARGET = ffmpeg_custom_pre_copy
+
 include ../../mk/spksrc.spk.mk
+
+.PHONY: ffmpeg_custom_pre_copy
+ffmpeg_custom_pre_copy: $(INSTALL_PLIST)
+	# Remove libhdr10plus reference from PLIST if it isn't available on the platform (e.g. 88f6281)
+	test -f $(INSTALL_DIR)$(INSTALL_PREFIX)/lib/libhdr10plus.so || sed -i -e '/:lib\/libhdr10plus.so/d' $(INSTALL_PLIST)
