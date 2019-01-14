@@ -7,7 +7,7 @@ PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS = cross/flac cross/freetype cross/fribidi cross/lame cross/libass
 DEPENDS += cross/libbluray cross/libtheora cross/libvorbis cross/libvpx
-DEPENDS += cross/opencore-amr cross/openjpeg cross/gnutls cross/opus cross/rtmpdump
+DEPENDS += cross/opencore-amr cross/openjpeg cross/gnutls cross/opus
 DEPENDS += cross/soxr cross/speex cross/vo-amrwbenc cross/x264 cross/x265
 
 HOMEPAGE = http://www.ffmpeg.org/
@@ -26,7 +26,7 @@ CONFIGURE_ARGS += --enable-gpl --enable-version3
 CONFIGURE_ARGS += --enable-fontconfig --enable-libass --enable-libbluray --enable-avresample
 CONFIGURE_ARGS += --enable-libfreetype --enable-libfribidi --enable-libmp3lame
 CONFIGURE_ARGS += --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg
-CONFIGURE_ARGS += --enable-libopus --enable-librtmp --enable-libsoxr --enable-libspeex
+CONFIGURE_ARGS += --enable-libopus --enable-libsoxr --enable-libspeex
 CONFIGURE_ARGS += --enable-libtheora --enable-libvo-amrwbenc --enable-libvorbis
 CONFIGURE_ARGS += --enable-libvpx --enable-libx264 --enable-libx265 --enable-gnutls
 CONFIGURE_ARGS += --disable-debug --disable-doc --disable-htmlpages --disable-manpages
