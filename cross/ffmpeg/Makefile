@@ -7,12 +7,12 @@ PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS = cross/flac cross/freetype cross/fribidi cross/lame cross/libass
 DEPENDS += cross/libbluray cross/libvorbis cross/libvpx
-DEPENDS += cross/opencore-amr cross/openjpeg cross/gnutls cross/opus
-DEPENDS += cross/soxr cross/speex cross/vo-amrwbenc cross/x264 cross/x265
+DEPENDS += cross/gnutls cross/opus
+DEPENDS += cross/soxr cross/x264 cross/x265
 
 HOMEPAGE = http://www.ffmpeg.org/
 COMMENT  = FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video. It includes libavcodec - the leading audio/video codec library
-LICENSE  = GPLv3
+LICENSE  = GPLv2
 
 NASM_PATH=$(WORK_DIR)/../../../native/nasm/work-native/install/usr/local/bin
 
@@ -22,12 +22,11 @@ CONFIGURE_ARGS += --extra-ldflags="-L$(WORK_DIR)/install$(INSTALL_PREFIX)/lib"
 CONFIGURE_ARGS += --extra-libs="-lxml2 -ldl" --pkg-config=/usr/bin/pkg-config --ranlib=$(RANLIB)
 CONFIGURE_ARGS += --enable-cross-compile --enable-rpath --enable-pic
 CONFIGURE_ARGS += --enable-shared
-CONFIGURE_ARGS += --enable-gpl --enable-version3
-CONFIGURE_ARGS += --enable-fontconfig --enable-libass --enable-libbluray --enable-avresample
+CONFIGURE_ARGS += --enable-gpl
+CONFIGURE_ARGS += --enable-fontconfig --enable-libass --enable-libbluray
 CONFIGURE_ARGS += --enable-libfreetype --enable-libfribidi --enable-libmp3lame
-CONFIGURE_ARGS += --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg
-CONFIGURE_ARGS += --enable-libopus --enable-libsoxr --enable-libspeex
-CONFIGURE_ARGS += --enable-libvo-amrwbenc --enable-libvorbis
+CONFIGURE_ARGS += --enable-libopus --enable-libsoxr
+CONFIGURE_ARGS += --enable-libvorbis
 CONFIGURE_ARGS += --enable-libvpx --enable-libx264 --enable-libx265 --enable-gnutls
 CONFIGURE_ARGS += --disable-debug --disable-doc --disable-htmlpages --disable-manpages
 CONFIGURE_ARGS += --disable-podpages --disable-static --disable-txtpages
