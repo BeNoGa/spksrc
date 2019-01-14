@@ -14,7 +14,7 @@ HOMEPAGE = http://www.ffmpeg.org/
 COMMENT  = FFmpeg is a complete, cross-platform solution to record, convert and stream audio and video. It includes libavcodec - the leading audio/video codec library
 LICENSE  = GPLv3
 
-YASM_PATH=$(WORK_DIR)/../../../native/yasm/work-native/install/usr/local/bin
+NASM_PATH=$(WORK_DIR)/../../../native/nasm/work-native/install/usr/local/bin
 
 CONFIGURE_ARGS = --target-os=linux --cross-prefix=$(TC_PATH)$(TC_PREFIX) --prefix=$(INSTALL_PREFIX)
 CONFIGURE_ARGS += --extra-cflags="-I$(WORK_DIR)/install$(INSTALL_PREFIX)/include"
@@ -47,19 +47,19 @@ CONFIGURE_ARGS += --arch=arm64 --enable-neon --disable-yasm --disable-asm
 endif
 
 ifeq ($(findstring $(ARCH),$(x86_ARCHES)),$(ARCH))
-DEPENDS += native/yasm
-ENV += PATH=$(YASM_PATH):$$PATH
+DEPENDS += native/nasm
+ENV += PATH=$(NASM_PATH):$$PATH
 CONFIGURE_ARGS += --arch=i386 --enable-thumb
 endif
 
 ifeq ($(findstring $(ARCH),$(x64_ARCHES)),$(ARCH))
-DEPENDS += native/yasm cross/libva cross/libva-utils cross/intel-vaapi-driver
-ENV += PATH=$(YASM_PATH):$$PATH
+DEPENDS += native/nasm cross/libva cross/libva-utils cross/intel-vaapi-driver
+ENV += PATH=$(NASM_PATH):$$PATH
 CONFIGURE_ARGS += --arch=x86_64 --enable-thumb --enable-vaapi
 endif
 
 ifeq ($(findstring $(ARCH),$(PPC_ARCHES)),$(ARCH))
-DEPENDS += native/yasm
-ENV += PATH=$(YASM_PATH):$$PATH
+DEPENDS += native/nasm
+ENV += PATH=$(NASM_PATH):$$PATH
 CONFIGURE_ARGS += --arch=ppc
 endif
