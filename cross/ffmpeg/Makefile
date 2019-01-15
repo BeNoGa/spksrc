@@ -28,8 +28,8 @@ CONFIGURE_ARGS += --enable-libfreetype --enable-libfribidi --enable-libmp3lame
 CONFIGURE_ARGS += --enable-libopus --enable-libsoxr
 CONFIGURE_ARGS += --enable-libvorbis
 CONFIGURE_ARGS += --enable-libvpx --enable-libx264 --enable-libx265 --enable-gnutls
-CONFIGURE_ARGS += --disable-debug --disable-doc --disable-htmlpages --disable-manpages
-CONFIGURE_ARGS += --disable-podpages --disable-static --disable-txtpages
+CONFIGURE_ARGS += --disable-debug --disable-doc
+CONFIGURE_ARGS += --disable-static
 
 include ../../mk/spksrc.cross-cc.mk
 
