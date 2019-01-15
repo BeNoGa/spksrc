@@ -31,6 +31,12 @@ CONFIGURE_ARGS += --enable-libvpx --enable-libx264 --enable-libx265 --enable-gnu
 CONFIGURE_ARGS += --disable-debug --disable-doc
 CONFIGURE_ARGS += --disable-static
 
+# fdk-acc is not compatible with (L)GPL.
+# It can be enabled for personal use, but not for freely distributed packages.
+# Uncomment the following lines if you want to enable it.
+# DEPENDS += cross/fdk-aac
+# CONFIGURE_ARGS += --enable-libfdk-aac --enable-nonfree
+
 include ../../mk/spksrc.cross-cc.mk
 
 ifeq ($(findstring $(ARCH),$(ARM5_ARCHES)),$(ARCH))
