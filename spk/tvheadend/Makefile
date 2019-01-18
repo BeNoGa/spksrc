@@ -1,6 +1,6 @@
 SPK_NAME = tvheadend
-SPK_VERS = 4.2.7
-SPK_REV = 14
+SPK_VERS = 4.2.8
+SPK_REV = 15
 SPK_ICON = src/tvheadend.png
 DSM_UI_DIR = app
 
@@ -11,7 +11,7 @@ DESCRIPTION = Tvheadend is a TV streaming server and recorder for Linux, FreeBSD
 RELOAD_UI = yes
 DISPLAY_NAME = Tvheadend
 STARTABLE = yes
-CHANGELOG = "1. Update TVH to 4.2.7 (maintenance release), 2. Update libhdhomerun to 20180817, 3. Enable pcre2, 4. Remove dvb-apps (obsolete), 5. Remove default logging to allow NAS hibernation"
+CHANGELOG = "1. Update TVH to 4.2.8<br/>2. Fix software transcoding with x264<br/>3. Fix ppc build<br/>4. Remove beta flag"
 HOMEPAGE = https://www.lonelycoder.com/tvheadend/
 LICENSE = GPL v3
 

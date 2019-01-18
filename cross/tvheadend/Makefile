@@ -1,5 +1,5 @@
 PKG_NAME = tvheadend
-PKG_VERS = 4.2.7
+PKG_VERS = 4.2.8
 PKG_EXT = tar.gz
 PKG_DIST_NAME = v$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://github.com/tvheadend/tvheadend/archive
