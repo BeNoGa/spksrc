@@ -29,15 +29,20 @@ SERVICE_PORT_TITLE = Tvheadend(HTTP)
 # Admin link
 ADMIN_PORT = ${SERVICE_PORT}
 
-POST_STRIP_TARGET = tvheadend_extra_install
+PRE_COPY_TARGET = tvheadend_custom_pre_copy
+POST_STRIP_TARGET = tvheadend_custom_post_strip
 
 BUSYBOX_CONFIG = usrmng
 ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
 
 include ../../mk/spksrc.spk.mk
 
-.PHONY: tvheadend_extra_install
-tvheadend_extra_install:
+.PHONY: tvheadend_custom_pre_copy tvheadend_custom_post_strip
+tvheadend_custom_pre_copy: $(INSTALL_PLIST)
+	# Remove libhdr10plus reference from PLIST if it isn't available on the platform (e.g. 88f6281)
+	test -f $(INSTALL_DIR)$(INSTALL_PREFIX)/lib/libhdr10plus.so || sed -i -e '/:lib\/libhdr10plus.so/d' $(INSTALL_PLIST)
+
+tvheadend_custom_post_strip:
 	install -m 755 -d $(STAGING_DIR)/var
 	install -m 755 -d $(STAGING_DIR)/var/accesscontrol
 	install -m 755 -d $(STAGING_DIR)/var/passwd
