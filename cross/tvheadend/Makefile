@@ -32,4 +32,5 @@ myInstall:
 post_patch_target_tvheadend:
 	@if [ "$(ARCH)" = "ppc853x" ] || [ "$(ARCH)" = "qoriq" ]; then \
 		cat $(PWD)/patches/ppc/isoc9x.patch | ($(RUN) patch -p0) ;\
+		cat $(PWD)/patches/ppc/hts_strtab-undo-inlining-of-functions.patch | ($(RUN) patch -p0) ;\
 	fi;
