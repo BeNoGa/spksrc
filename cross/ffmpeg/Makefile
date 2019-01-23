@@ -34,8 +34,8 @@ CONFIGURE_ARGS += --disable-static
 # fdk-acc is not compatible with (L)GPL.
 # It can be enabled for personal use, but not for freely distributed packages.
 # Uncomment the following lines if you want to enable it.
-# DEPENDS += cross/fdk-aac
-# CONFIGURE_ARGS += --enable-libfdk-aac --enable-nonfree
+DEPENDS += cross/fdk-aac
+CONFIGURE_ARGS += --enable-libfdk-aac --enable-nonfree
 
 include ../../mk/spksrc.cross-cc.mk
 
