@@ -17,6 +17,8 @@ GNU_CONFIGURE = 1
 CONFIGURE_ARGS = --enable-imagecache --disable-avahi --enable-dvbcsa --enable-bundle --release
 CONFIGURE_ARGS += --disable-hdhomerun_static --enable-hdhomerun_client
 CONFIGURE_ARGS += --disable-ffmpeg_static --enable-libav
+CONFIGURE_ARGS += --disable-libfdkaac_static --disable-libopus_static --disable-libtheora --disable-libtheora_static
+CONFIGURE_ARGS += --disable-libvorbis_static --disable-libvpx_static --disable-libx264_static --disable-libx265_static
 
 INSTALL_TARGET = myInstall
 POST_PATCH_TARGET = post_patch_target_tvheadend
