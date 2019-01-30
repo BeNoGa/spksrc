@@ -34,9 +34,30 @@ POST_STRIP_TARGET = tvheadend_extra_install
 BUSYBOX_CONFIG = usrmng
 ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
 
+include ../../mk/spksrc.common.mk
+
+# Reuse ffmpeg libraries
+# Requires to invoke: make [package|publish] ARCH= TCVERSION=
+export FFMPEG_DIR = $(shell pwd)/../ffmpeg/work-$(ARCH)-$(TCVERSION)/install/var/packages/ffmpeg/target
+
+ifneq ($(wildcard $(FFMPEG_DIR)),)
+$(info Depend on ffmpeg package libraries)
+PRE_DEPEND_TARGET = tvheadend_pre_depend
+SPK_DEPENDS = "ffmpeg>4.1"
+else
+$(warning Build spk/ffmpeg first to depend on its libraries $(FFMPEG_DIR))
+endif
+
 include ../../mk/spksrc.spk.mk
 
-.PHONY: tvheadend_extra_install
+.PHONY: tvheadend_pre_depend tvheadend_extra_install
+
+FFMPEG_LIBS = libavfilter.pc libpostproc.pc libswresample.pc libavresample.pc libswscale.pc libavutil.pc libavformat.pc libavcodec.pc
+
+tvheadend_pre_depend:
+	mkdir -p $(STAGING_INSTALL_PREFIX)/lib/pkgconfig/
+	$(foreach lib,$(FFMPEG_LIBS),ln -s $(FFMPEG_DIR)/lib/pkgconfig/$(lib) $(STAGING_INSTALL_PREFIX)/lib/pkgconfig/ ;)
+
 tvheadend_extra_install:
 	install -m 755 -d $(STAGING_DIR)/var
 	install -m 755 -d $(STAGING_DIR)/var/accesscontrol
