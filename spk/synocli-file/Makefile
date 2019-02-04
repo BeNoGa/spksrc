@@ -5,10 +5,7 @@ SPK_VERS = 1.0
 SPK_REV = 1
 SPK_ICON = src/synocli-file.png
 
-DEPENDS = cross/jdupes cross/less cross/tree cross/rhash cross/rename cross/mc cross/nano
-
-# Requirement for renamer
-SPK_DEPENDS = "Perl>=5.14"
+DEPENDS = cross/jdupes cross/less cross/tree cross/rhash cross/mc cross/nano
 
 MAINTAINER = m4tt075
 DESCRIPTION = "SynoCli File Tools provides a set of small command-line utilities: jdupes, less, tree, rhash, mc \(midnight commander\), nano. Credits to Sebastian Schmidt \(publicarray\) for icons"
@@ -29,4 +26,3 @@ include ../../mk/spksrc.spk.mk
 .PHONY: synoclifile_extra_install
 synoclifile_extra_install:
 	install -m 755 src/mc-utf8 $(STAGING_DIR)/bin/mc-utf8
-

@@ -1,3 +1,0 @@
-bin:bin/rename
-rsc:share/perl5/File/Rename/Options.pm
-rsc:share/perl5/File/Rename.pm
