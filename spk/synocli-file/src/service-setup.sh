@@ -1,5 +1,5 @@
 COMMANDS="jdupes less lessecho lesskey tree ed2k-link edonr256-hash edonr512-hash ghost-hash has160-hash magnet-link"
-COMMANDS+="rhash sfv-hash tiger-hash tth-hash whirlpool-hash rename"
+COMMANDS+="rhash sfv-hash tiger-hash tth-hash whirlpool-hash rename nano rnano"
 
 service_postinst ()
 {

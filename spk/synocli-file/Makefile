@@ -5,7 +5,7 @@ SPK_VERS = 1.0
 SPK_REV = 1
 SPK_ICON = src/synocli-file.png
 
-DEPENDS = cross/jdupes cross/less cross/tree cross/rhash cross/rename cross/mc
+DEPENDS = cross/jdupes cross/less cross/tree cross/rhash cross/rename cross/mc cross/nano
 
 # Requirement for renamer
 SPK_DEPENDS = "Perl>=5.14"
