@@ -1,5 +1,5 @@
 PKG_NAME = mc
-PKG_VERS = 4.8.21
+PKG_VERS = 4.8.22
 PKG_EXT = tar.xz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://www.midnight-commander.org/downloads
@@ -15,10 +15,10 @@ GNU_CONFIGURE = 1
 CONFIGURE_ARGS = fu_cv_sys_stat_statfs2_bsize=yes --with-screen=ncurses
 ADDITIONAL_CFLAGS = -O3
 
-INSTALL_TARGET = myInstall
+INSTALL_TARGET = mc_install_target
 
 include ../../mk/spksrc.cross-cc.mk
 
-.PHONY: myInstall
-myInstall:
+.PHONY: mc_install_target
+mc_install_target:
 	$(RUN) $(MAKE) install DESTDIR=$(INSTALL_DIR)
